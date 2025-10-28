@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 Secure Crypto Vault</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 Secure Crypto Vault</h1>
+            <p>Military-grade AES Encryption for Your Files</p>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form-container" id="loginForm">
+            <h2>Welcome Back!</h2>
+            <form action="/login" method="POST">
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <p class="switch-form">New user? <a href="#" onclick="showRegister()">Register here</a></p>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-container" id="registerForm" style="display:none">
+            <h2>Create Account</h2>
+            <form action="/register" method="POST">
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Choose Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Create Password" required>
+                </div>
+                <button type="submit" class="btn">Register</button>
+            </form>
+            <p class="switch-form">Already have account? <a href="#" onclick="showLogin()">Login here</a></p>
+        </div>
+    </div>
+
+    <script>
+        function showRegister() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+        }
+        
+        function showLogin() {
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

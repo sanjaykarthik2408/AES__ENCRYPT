@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Secure Crypto Vault</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 Crypto Dashboard</h1>
+            <p>Welcome, {{ username }}! | <a href="/logout" style="color: white;">Logout</a></p>
+        </div>
+
+        <div class="form-container">
+            <!-- File Encryption -->
+            <div class="feature-card">
+                <h3>🔒 Encrypt File</h3>
+                <form action="/encrypt" method="POST" enctype="multipart/form-data">
+                    <div class="input-group">
+                        <input type="file" name="file" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" placeholder="Encryption Password" required>
+                    </div>
+                    <button type="submit" class="btn">Encrypt File</button>
+                </form>
+            </div>
+
+            <!-- File Decryption -->
+            <div class="feature-card">
+                <h3>🔓 Decrypt File</h3>
+                <form action="/decrypt" method="POST" enctype="multipart/form-data">
+                    <div class="input-group">
+                        <input type="file" name="file" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" placeholder="Decryption Password" required>
+                    </div>
+                    <button type="submit" class="btn">Decrypt File</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
